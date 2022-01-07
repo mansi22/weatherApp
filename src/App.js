@@ -9,6 +9,7 @@ constructor(){
   this.state={
     weatherData:"",
     city:""
+    
   }
 }
 componentDidMount(){
@@ -17,23 +18,35 @@ componentDidMount(){
  console.log(this.state)
  
 }
-fetchWeather=()=>{
+fetchWeather=async()=>{
+  var weather={}
   var url2="http://api.weatherstack.com/current?access_key=1b6fdda898c99d874820e27ed6aa564a&query="+this.state.city;
-  var url3="http://localhost:3000/"+this.state.city;
-   fetch(url2)
+  var url3="http://localhost:3000/city/"+this.state.city;
+  console.log("inside fetch weather");
+  /*await fetch(url3)
   .then(response=>response.json())
-  .then(data=>console.log(data))
- // .then(data=>this.setState({weatherData:data.current}))
+  .then(data=>console.log("response is ",data))
+ .then(data=>this.setState({weatherData:data}))
+ */
+let response= await fetch(url3);
+let resjson=await response.json()
+console.log(resjson);
+let current=await resjson.current;
+let pressure= await current.pressure;
+console.log("pressure is "+pressure)
+this.setState({weatherData:current})
+   
+ 
 }
 handleSubmit=async(event)=>{
   event.preventDefault()
-  console.log("the city is"+this.state.city)
+  console.log("the city is"+this.state.city);
   this.fetchWeather();
 
 }
-handleChange=(event)=>{
+handleChange=async(event)=>{
 console.log(event.target.value)
-this.setState({city:event.target.value})
+this.setState({city:event.target.value});
 }
 render(){
   //console.log(this.state.weatherData)
@@ -47,8 +60,7 @@ render(){
         </label>
         <input type="submit" value="Submit" />
       </form>
-        <h1>{this.state.weatherData.pressure}</h1>
-        <p>{this.state.weatherData.pressure}</p>
+      <h1>Pressure : {this.state.weatherData.pressure}</h1>
       </header>
     </div>
   );
