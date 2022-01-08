@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 3001;
 
 const app = express();
 app.get("/api", (req, res) => {
-    res.json({ message: "Hello from server!" });
+    res.json({ message: "Hello from server!" });  
   });
   app.get('/city/:city', function(req, res)  {
    // res.send(req.params);
@@ -14,7 +14,7 @@ app.get("/api", (req, res) => {
     let data=''
     let body={}
     var city=req.params.city;
-    var url="http://api.weatherstack.com/current?access_key=1b6fdda898c99d874820e27ed6aa564a&query="+city;
+    var url="http://api.weatherstack.com/current?access_key=3f6510494aa0e5265fd47bbe1ee4dea0&query="+city;
     console.log(url)
 
     const req1 = http.request(url, (res1) => {
