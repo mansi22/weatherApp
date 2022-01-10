@@ -1,3 +1,6 @@
+// 
+Code to handle the wrong input in text box. Not included in the working code.
+
 render(){
     //console.log(this.state.weatherData)
     let {error}=this.state.errorMessage;

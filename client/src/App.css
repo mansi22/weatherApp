@@ -50,15 +50,19 @@ justify-content: space-evenly;
   display: flex;
   padding-right:0;
  /* border: 2px solid;*/
-  flex-wrap:wrap
+  flex-wrap:wrap;
+  margin-top:20px;
   
 }
 .subitem{
-  margin: 0px 20px;
+  margin: 10px 20px;
   width:25%;
+  padding: 10px;
  /* border: 1px solid red;*/
   text-align: center;
   font-weight: bolder;
+  border: 1px solid gray;
+  border-radius: 20px;
 }
 .dropDown{
   align-items: center;

@@ -11,6 +11,8 @@ const Countries = [
     { label: "Pune", value: "Pune" },
     { label: "Jaipur", value: "Jaipur" }
   ];
+  // dropdown component made separately to be used if redux store is used to share the data across components 
+  
   export default class SelectDropDownComponent extends React.Component {
     constructor(){
         super();

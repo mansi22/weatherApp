@@ -70,10 +70,13 @@ hangledropdownChange=async(e)=>{
     });
     this.handleSubmit();
 }
+//function to fetch weather on submit button of form that has input text box
+/*
 handleChange=async(event)=>{
 console.log(event.target.value)
 this.setState({city:event.target.value});
 }
+*/
 render(){
   //console.log(this.state.weatherData)
   let {error}=this.state.errorMessage;
@@ -133,7 +136,7 @@ render(){
     <div className="App" style={{backgroundImage: isday?`url(${bg})`: `url(${bg2})` }}>
       
       <div className="container">
-      <div class="dropdown">
+      <div className="dropdown">
           <div className="row">
             <div className="col-md-3"></div>
             <div className="col-md-6">
@@ -145,7 +148,9 @@ render(){
           </div>
         </div>
         </div>
-    { /*   <div className="dropDown">
+        
+    { // Text input box alternative to dropdown
+    /*   <div className="inputBox">
       <form onSubmit={this.handleSubmit}>
         <label>
           Name:
@@ -181,7 +186,7 @@ render(){
           <div className="time-zone">
             <p>Time Zone: {this.state.locationData.timezone_id} </p>
             <p>localtime : {this.state.locationData.localtime}</p>
-            <p>Feels like: {this.state.weatherData.feelslike}</p>
+            <p>Feels like: {this.state.weatherData.feelslike} °C</p>
           </div>
         </div>
         <div className="info2">
